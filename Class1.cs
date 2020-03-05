@@ -74,5 +74,24 @@ namespace newFields
                 }
             }
         }
+
+        public string Max()
+        {
+            int iMax = 0;
+            string sMax = "";
+            for (int i = 1; i < Rows; i++)
+            {
+                for (int j = 1; j < Columns; j++)
+                {
+                    if (Articles[i, j] != "" && Articles[i, j] != "-" && Convert.ToInt32(Articles[i, j]) > iMax)
+                    {
+                        iMax = Convert.ToInt32(Articles[i, j]);
+                        sMax = Convert.ToString(iMax) + " - дата: " + Articles[0, j] + ", источник: " + Articles[i, 0];
+                    }
+                }
+            }
+
+            return sMax;
+        }
     }
 }
